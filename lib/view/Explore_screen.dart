@@ -8,12 +8,12 @@ class ExplorePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // Données statiques pour l'exemple
     final List<Map<String, String>> exploreItems = [
-      {"name": "Pizza", "image": "https://via.placeholder.com/150"},
-      {"name": "Burgers", "image": "https://via.placeholder.com/150"},
-      {"name": "Sushi", "image": "https://via.placeholder.com/150"},
-      {"name": "Pasta", "image": "https://via.placeholder.com/150"},
-      {"name": "Salads", "image": "https://via.placeholder.com/150"},
-      {"name": "Desserts", "image": "https://via.placeholder.com/150"},
+      {"name": "Pizza", "image": "assets/ramen/fullset_ramen.png"},
+      {"name": "Burgers", "image": "assets/ramen/fullset_ramen.png"},
+      {"name": "Sushi", "image": "assets/ramen/fullset_ramen.png"},
+      {"name": "Pasta", "image": "assets/ramen/fullset_ramen.png"},
+      {"name": "Salads", "image": "assets/ramen/fullset_ramen.png"},
+      {"name": "Desserts", "image": "assets/ramen/fullset_ramen.png"},
     ];
 
     return Scaffold(

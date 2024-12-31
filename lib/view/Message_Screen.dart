@@ -9,23 +9,36 @@ class MessagePage extends StatelessWidget {
     // Données statiques pour l'exemple
     final List<Map<String, String>> messages = [
       {
-        "name": "John Doe",
+        "name": "Amal",
         "lastMessage": "Hey, are you available?",
         "time": "10:45 AM",
-        "profileImage": "https://via.placeholder.com/150"
+        "profileImage": "assets/profile/pro1.png"
       },
       {
-        "name": "Jane Smith",
+        "name": "Ameni",
         "lastMessage": "Thanks for your help!",
         "time": "9:30 AM",
-        "profileImage": "https://via.placeholder.com/150"
+        "profileImage": "assets/profile/pro2.jpeg"
       },
       {
-        "name": "Restaurant ABC",
+        "name": "Ryhab",
         "lastMessage": "Your order is ready for pickup.",
         "time": "Yesterday",
-        "profileImage": "https://via.placeholder.com/150"
+        "profileImage": "assets/profile/pro3.jpg"
       },
+      {
+        "name": "Ryhab",
+        "lastMessage": "Your order is ready for pickup.",
+        "time": "Yesterday",
+        "profileImage": "assets/profile/pro3.jpg"
+      },
+      {
+        "name": "Ryhab",
+        "lastMessage": "Your order is ready for pickup.",
+        "time": "Yesterday",
+        "profileImage": "assets/profile/pro3.jpg"
+      },
+
     ];
 
     return Scaffold(
@@ -48,7 +61,7 @@ class MessagePage extends StatelessWidget {
           final message = messages[index];
           return ListTile(
             leading: CircleAvatar(
-              backgroundImage: NetworkImage(message["profileImage"]!),
+              backgroundImage: AssetImage(message["profileImage"]!),
               radius: 28,
             ),
             title: Text(

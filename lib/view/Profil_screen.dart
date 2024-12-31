@@ -25,7 +25,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     super.initState();
-    // Initialiser l'utilisateur avec les données actuelles
     user = currentUser;
   }
 
@@ -92,14 +91,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   void _changeProfilePicture() {
-    // Vous pouvez implémenter une logique pour changer la photo de profil
-    // en utilisant une bibliothèque comme image_picker pour obtenir une nouvelle image
-    // ou en permettant à l'utilisateur de sélectionner une image depuis la galerie.
     print("Change profile picture");
   }
 
   void _changePassword() {
-    // Implémentez la logique pour changer le mot de passe ici
     showDialog(
       context: context,
       builder: (context) {
@@ -149,7 +144,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             ElevatedButton(
               onPressed: () {
-                // Implémentez la logique de mise à jour du mot de passe ici
                 Navigator.of(context).pop();
               },
               child: const Text("Save"),
@@ -161,7 +155,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   void _changeLanguage() {
-    // Implémentez la logique pour changer la langue de l'application
     print("Change language");
   }
 
@@ -229,7 +222,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     BoxShadow(color: Colors.grey.shade300, blurRadius: 5),
                   ],
                 ),
-
                 child: Column(
                   children: [
                     ListTile(
@@ -259,7 +251,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         );
                       },
                     ),
-
                     ListTile(
                       leading: Icon(Icons.contact_mail, color: korange, size: size.width * 0.07),
                       title: Text(
@@ -276,7 +267,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         );
                       },
                     ),
-
                     ListTile(
                       leading: Icon(Icons.language, color: korange, size: size.width * 0.07),
                       title: Text(

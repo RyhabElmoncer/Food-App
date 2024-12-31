@@ -18,7 +18,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kbgColor,
+      backgroundColor: korange,
       body: Stack(
         alignment: Alignment.topCenter,
         children: [

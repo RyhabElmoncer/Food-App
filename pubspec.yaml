@@ -34,7 +34,10 @@ flutter:
     - assets/
     - assets/burger/
     - assets/ramen/
-
+    - assets/profile/profile.jpeg
+    - assets/profile/
+    - assets/profile/pro2.jpeg
+    - assets/profile/pro3.jpg
   # fonts:
   #   - family: Schyler
   #     fonts:
