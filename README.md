@@ -25,5 +25,8 @@ flutter pub get
 flutter run
 ```
 ## Capture
-<img width="330" alt="food app" src="https://github.com/user-attach<img width="325" alt="food2" src="https://github.com/user-attachments/assets/5cc12cbf-b0d9-41bf-a42b-24b4a0ddb0d2" />
-ments/assets/fec28ba8-f44e-4470-8437-33c340e24408" />
+
+<img width="330" alt="food app" src="https://github.com/user-attachments/assets/a2022cb8-9100-4c93-9367-73bb5df3b90b" />
+
+<img width="325" alt="food2" src="https://github.com/user-attachments/assets/61e84b45-de46-4edb-827d-34aec7ff1030" />
+
