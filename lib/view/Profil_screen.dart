@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food_delivery_app/utils/app_colors.dart';
 
-import '../model/User_model.dart';
+import '../model/user_model.dart';
+import 'ContactUsScreen.dart';
+import 'HelpScreen.dart';
 
 // Exemple d'utilisateur
 final UserModel currentUser = UserModel(
   name: "Ryhab Ruyhab",
   email: "ryhab@example.com",
-  profileImage: "https://via.placeholder.com/150",
+  profileImage: "assets/profile/profile.jpeg", // Utilisation des assets
 );
 
 class ProfileScreen extends StatefulWidget {
@@ -28,7 +30,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   void _editProfile() {
-    // Ouvrir une boîte de dialogue pour modifier les données
     showDialog(
       context: context,
       builder: (context) {
@@ -42,25 +43,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
             "Edit Profile",
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                controller: nameController,
-                decoration: const InputDecoration(
-                  labelText: "Name",
-                  border: OutlineInputBorder(),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                  controller: nameController,
+                  decoration: const InputDecoration(
+                    labelText: "Name",
+                    border: OutlineInputBorder(),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 15),
-              TextField(
-                controller: emailController,
-                decoration: const InputDecoration(
-                  labelText: "Email",
-                  border: OutlineInputBorder(),
+                const SizedBox(height: 15),
+                TextField(
+                  controller: emailController,
+                  decoration: const InputDecoration(
+                    labelText: "Email",
+                    border: OutlineInputBorder(),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           actions: [
             TextButton(
@@ -88,89 +91,219 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
+  void _changeProfilePicture() {
+    // Vous pouvez implémenter une logique pour changer la photo de profil
+    // en utilisant une bibliothèque comme image_picker pour obtenir une nouvelle image
+    // ou en permettant à l'utilisateur de sélectionner une image depuis la galerie.
+    print("Change profile picture");
+  }
+
+  void _changePassword() {
+    // Implémentez la logique pour changer le mot de passe ici
+    showDialog(
+      context: context,
+      builder: (context) {
+        final TextEditingController currentPasswordController =
+        TextEditingController();
+        final TextEditingController newPasswordController =
+        TextEditingController();
+
+        return AlertDialog(
+          title: const Text(
+            "Change Password",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                  controller: currentPasswordController,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    labelText: "Current Password",
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 15),
+                TextField(
+                  controller: newPasswordController,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    labelText: "New Password",
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text(
+                "Cancel",
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Implémentez la logique de mise à jour du mot de passe ici
+                Navigator.of(context).pop();
+              },
+              child: const Text("Save"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _changeLanguage() {
+    // Implémentez la logique pour changer la langue de l'application
+    print("Change language");
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final padding = size.width * 0.05;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: korange,
-        title: const Text(
-          "Profile",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(padding),
+          child: Column(
+            children: [
+              // Image de fond de profil (optionnelle)
+              Container(
+                height: size.height * 0.2,
+                decoration: BoxDecoration(
+                  color: korange,
+                  borderRadius: BorderRadius.vertical(
+                    bottom: Radius.circular(30),
+                  ),
+                ),
+                child: Center(
+                  child: GestureDetector(
+                    onTap: _changeProfilePicture,
+                    child: CircleAvatar(
+                      radius: size.width * 0.2,
+                      backgroundImage: AssetImage(user.profileImage),
+                      backgroundColor: Colors.grey[200],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: size.height * 0.03),
+              // Nom et Email
+              Text(
+                user.name,
+                style: TextStyle(
+                  fontSize: size.width * 0.07,
+                  fontWeight: FontWeight.bold,
+                  color: kblack,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+              SizedBox(height: size.height * 0.01),
+              Text(
+                user.email,
+                style: TextStyle(
+                  fontSize: size.width * 0.05,
+                  color: Colors.black54,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+              SizedBox(height: size.height * 0.03),
+              Divider(color: Colors.grey[400], thickness: 1),
+              SizedBox(height: size.height * 0.03),
+              // Section "A propos" (bio)
+              Container(
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(color: Colors.grey.shade300, blurRadius: 5),
+                  ],
+                ),
+
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: Icon(Icons.edit, color: korange, size: size.width * 0.07),
+                      title: Text(
+                        "Edit Profile",
+                        style: TextStyle(
+                          fontSize: size.width * 0.045,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      onTap: _editProfile,
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.help, color: korange, size: size.width * 0.07),
+                      title: Text(
+                        "Help & Support",
+                        style: TextStyle(
+                          fontSize: size.width * 0.045,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HelpScreen()),
+                        );
+                      },
+                    ),
+
+                    ListTile(
+                      leading: Icon(Icons.contact_mail, color: korange, size: size.width * 0.07),
+                      title: Text(
+                        "Contact Us",
+                        style: TextStyle(
+                          fontSize: size.width * 0.045,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ContactUsScreen()),
+                        );
+                      },
+                    ),
+
+                    ListTile(
+                      leading: Icon(Icons.language, color: korange, size: size.width * 0.07),
+                      title: Text(
+                        "Change Language",
+                        style: TextStyle(
+                          fontSize: size.width * 0.045,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      onTap: _changeLanguage,
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.lock, color: korange, size: size.width * 0.07),
+                      title: Text(
+                        "Change Password",
+                        style: TextStyle(
+                          fontSize: size.width * 0.045,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      onTap: _changePassword,
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-        ),
-        centerTitle: true,
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(padding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: size.height * 0.03),
-            // Image de profil
-            Center(
-              child: CircleAvatar(
-                radius: size.width * 0.2,
-                backgroundImage: NetworkImage(user.profileImage),
-                backgroundColor: Colors.grey[200],
-              ),
-            ),
-            SizedBox(height: size.height * 0.03),
-            // Nom
-            Text(
-              user.name,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: kblack,
-              ),
-            ),
-            SizedBox(height: size.height * 0.01),
-            // Email
-            Text(
-              user.email,
-              style: const TextStyle(
-                fontSize: 16,
-                color: Colors.black54,
-              ),
-            ),
-            SizedBox(height: size.height * 0.03),
-            // Ligne de séparation
-            Divider(
-              color: Colors.grey[400],
-              thickness: 1,
-            ),
-            SizedBox(height: size.height * 0.03),
-            // Bouton pour modifier le profil
-            ListTile(
-              leading: const Icon(Icons.edit, color: korange),
-              title: const Text(
-                "Edit Profile",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              onTap: _editProfile,
-            ),
-            ListTile(
-              leading: const Icon(Icons.logout, color: korange),
-              title: const Text(
-                "Logout",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              onTap: () {
-                // Action pour se déconnecter
-              },
-            ),
-          ],
         ),
       ),
     );
