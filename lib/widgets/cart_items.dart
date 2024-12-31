@@ -138,8 +138,8 @@ class CartItems extends StatelessWidget {
                             }
                           },
                           child: Container(
-                            width: size.width * 0.07,
-                            height: size.height * 0.05,
+                            width: size.width * 0.05,
+                            height: size.height * 0.03,
                             decoration: const BoxDecoration(
                               color: kblack,
                               borderRadius: BorderRadius.vertical(
@@ -149,7 +149,7 @@ class CartItems extends StatelessWidget {
                             child: const Icon(
                               Icons.remove,
                               color: Colors.white,
-                              size: 20,
+                              size: 15,
                             ),
                           ),
                         ),
@@ -168,8 +168,8 @@ class CartItems extends StatelessWidget {
                             cartProvider.addCart(cart.productModel);
                           },
                           child: Container(
-                            width: size.width * 0.07,
-                            height: size.height * 0.05,
+                            width: size.width * 0.05,
+                            height: size.height * 0.03,
                             decoration: const BoxDecoration(
                               color: kblack,
                               borderRadius: BorderRadius.vertical(
@@ -179,7 +179,7 @@ class CartItems extends StatelessWidget {
                             child: const Icon(
                               Icons.add,
                               color: Colors.white,
-                              size: 20,
+                              size: 15,
                             ),
                           ),
                         ),

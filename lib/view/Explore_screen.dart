@@ -6,14 +6,14 @@ class ExplorePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Données statiques pour l'exemple
+    // Static data for example
     final List<Map<String, String>> exploreItems = [
       {"name": "Pizza", "image": "assets/ramen/fullset_ramen.png"},
-      {"name": "Burgers", "image": "assets/ramen/fullset_ramen.png"},
-      {"name": "Sushi", "image": "assets/ramen/fullset_ramen.png"},
+      {"name": "Burgers", "image": "assets/burger/fried-chicken-burger.png"},
+      {"name": "Sushi", "image": "assets/burger/fried-chicken-burger.png"},
       {"name": "Pasta", "image": "assets/ramen/fullset_ramen.png"},
       {"name": "Salads", "image": "assets/ramen/fullset_ramen.png"},
-      {"name": "Desserts", "image": "assets/ramen/fullset_ramen.png"},
+      {"name": "Desserts", "image": "assets/burger/fried-chicken-burger.png"},
     ];
 
     return Scaffold(
@@ -32,7 +32,7 @@ class ExplorePage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, // Nombre de colonnes
+            crossAxisCount: 2, // Number of columns
             crossAxisSpacing: 16,
             mainAxisSpacing: 16,
             childAspectRatio: 0.8,
@@ -42,7 +42,7 @@ class ExplorePage extends StatelessWidget {
             final item = exploreItems[index];
             return GestureDetector(
               onTap: () {
-                // Action lorsqu'un élément est cliqué
+                // Action when an item is clicked
                 showDialog(
                   context: context,
                   builder: (_) => AlertDialog(
@@ -75,20 +75,20 @@ class ExplorePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Image de l'élément
+                    // Item image
                     Expanded(
                       child: ClipRRect(
                         borderRadius: const BorderRadius.vertical(
                           top: Radius.circular(12),
                         ),
-                        child: Image.network(
+                        child: Image.asset(
                           item["image"]!,
                           width: double.infinity,
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
-                    // Nom de l'élément
+                    // Item name
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(

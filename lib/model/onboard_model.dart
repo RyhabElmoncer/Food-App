@@ -11,17 +11,17 @@ class OnBoard {
 List<OnBoard> onboards = [
   OnBoard(
     image: 'assets/onboard_1.png',
-    text1: 'Grab your\nDelicious food !',
+    text1: 'Delicious food !',
     text2: 'Delivery food in your phone',
   ),
   OnBoard(
     image: 'assets/onboard_2.png',
-    text1: 'Grab your\nDelicious food !',
+    text1: 'Delicious food !',
     text2: 'Delivery food in your phone',
   ),
   OnBoard(
     image: 'assets/onboard_3.png',
-    text1: 'Grab your\nDelicious food !',
+    text1: 'Delicious food !',
     text2: 'Delivery food in your phone',
   ),
 ];

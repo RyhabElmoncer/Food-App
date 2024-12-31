@@ -5,9 +5,7 @@ import 'package:flutter_food_delivery_app/model/cart_model.dart';
 import 'package:flutter_food_delivery_app/provider/cart_provider.dart';
 import 'package:flutter_food_delivery_app/utils/app_colors.dart';
 import 'package:flutter_food_delivery_app/widgets/cart_items.dart';
-
 import 'package:provider/provider.dart';
-
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -20,165 +18,176 @@ class CartScreen extends StatelessWidget {
       backgroundColor: kbgColor,
       body: SafeArea(
           child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.black12,
-                    ),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Icon(
-                        Icons.arrow_back,
-                        color: kblack,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.black12,
+                        ),
+                        borderRadius: BorderRadius.circular(5),
                       ),
-                    ),
-                  ),
-                ),
-                const Text(
-                  "My Cart",
-                  style: TextStyle(
-                    color: kblack,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 22,
-                  ),
-                ),
-                const SizedBox(),
-              ],
-            ),
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ...List.generate(
-                    carts.length,
-                    (index) => Container(
-                      height: 145,
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.only(
-                        top: index == 0 ? 30 : 0,
-                        right: 25,
-                        left: 25,
-                        bottom: 30,
-                      ),
-                      child: Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: [
-                          FadeInUp(
-                            delay: Duration(
-                                milliseconds: (index + 1) *
-                                    200), // after this animation is applied in all items one by one
-                            child: CartItems(
-                              cart: carts[index],
-                            ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Icon(
+                            Icons.arrow_back,
+                            color: kblack,
                           ),
-                        ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                    const Text(
+                      "My Cart",
+                      style: TextStyle(
+                        color: kblack,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 22,
+                      ),
+                    ),
+                    const SizedBox(),
+                  ],
+                ),
               ),
-            ),
-          ),
-          Container(
-            color: Colors.white,
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    const Text(
-                      "Delivery",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: kblack,
-                        fontWeight: FontWeight.bold,
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ...List.generate(
+                        carts.length,
+                            (index) => Container(
+                          height: 145,
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.only(
+                            top: index == 0 ? 30 : 0,
+                            right: 25,
+                            left: 25,
+                            bottom: 30,
+                          ),
+                          child: Stack(
+                            alignment: Alignment.bottomCenter,
+                            children: [
+                              FadeInUp(
+                                delay: Duration(
+                                    milliseconds: (index + 1) *
+                                        200), // after this animation is applied in all items one by one
+                                child: CartItems(
+                                  cart: carts[index],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: DottedLine(
-                        dashLength: 10,
-                        dashColor: kblack.withOpacity(0.5),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    const Text(
-                      "\dt 7",
-                      style: TextStyle(
-                        color: korange,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 20),
-                Row(
-                  children: [
-                    const Text(
-                      "Total Order",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: kblack,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: DottedLine(
-                        dashLength: 10,
-                        dashColor: kblack.withOpacity(0.5),
-                      ),
-                    ),
-                    Text(
-                      "\dt ${(cartProvider.totalCart()).toStringAsFixed(2)}",
-                      style: const TextStyle(
-                        color: korange,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 40),
-                MaterialButton(
-                  onPressed: () {},
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  color: kblack,
-                  height: 75,
-                  minWidth: MediaQuery.of(context).size.width - 50,
-                  child: Text(
-                    " Pay \dt ${(cartProvider.totalCart() + 5.99).toStringAsFixed(2)}",
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                    ],
                   ),
                 ),
-              ],
-            ),
-          ),
-        ],
-      )),
+              ),
+              Container(
+                color: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        const Text(
+                          "Delivery",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: kblack,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: DottedLine(
+                            dashLength: 10,
+                            dashColor: kblack.withOpacity(0.5),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        const Text(
+                          "\dt 7",
+                          style: TextStyle(
+                            color: korange,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      children: [
+                        const Text(
+                          "Total Order",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: kblack,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: DottedLine(
+                            dashLength: 10,
+                            dashColor: kblack.withOpacity(0.5),
+                          ),
+                        ),
+                        Text(
+                          "\dt ${(cartProvider.totalCart()).toStringAsFixed(2)}",
+                          style: const TextStyle(
+                            color: korange,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 40),
+                    MaterialButton(
+                      onPressed: () {
+                        // Show success message after payment
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                              "Payment Successful!",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            backgroundColor: Colors.green,
+                          ),
+                        );
+                      },
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      color: kblack,
+                      height: 75,
+                      minWidth: MediaQuery.of(context).size.width - 50,
+                      child: Text(
+                        " Payer \dt ${(cartProvider.totalCart() + 5.99).toStringAsFixed(2)}",
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )),
     );
   }
 }
