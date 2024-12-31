@@ -1,8 +1,10 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_food_delivery_app/model/onboard_model.dart';
-import 'package:flutter_food_delivery_app/utils/app_colors.dart';
+
 import 'package:flutter_food_delivery_app/view/main_screen.dart';
+
+import '../utils/app_colors.dart';
 
 class OnboardScreen extends StatefulWidget {
   const OnboardScreen({super.key});
@@ -16,7 +18,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kblack,
+      backgroundColor: kbgColor,
       body: Stack(
         alignment: Alignment.topCenter,
         children: [

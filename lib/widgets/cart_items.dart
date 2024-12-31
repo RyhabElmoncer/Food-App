@@ -1,10 +1,8 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_food_delivery_app/model/cart_model.dart';
 import 'package:flutter_food_delivery_app/provider/cart_provider.dart';
 import 'package:flutter_food_delivery_app/utils/app_colors.dart';
-
 import 'package:provider/provider.dart';
 
 class CartItems extends StatelessWidget {
@@ -16,14 +14,14 @@ class CartItems extends StatelessWidget {
     CartProvider cartProvider = Provider.of<CartProvider>(context);
     Size size = MediaQuery.of(context).size;
     return SizedBox(
-      height: 140,
-      width: size.width / 1.2,
+      height: size.height * 0.18,
+      width: size.width * 0.85,
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
           Container(
-            height: 130,
-            width: size.width - 50,
+            height: size.height * 0.16,
+            width: size.width * 0.9,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
@@ -35,16 +33,16 @@ class CartItems extends StatelessWidget {
             child: Transform.rotate(
               angle: 10 * pi / 180,
               child: SizedBox(
-                height: 130,
-                width: 130,
+                height: size.height * 0.16,
+                width: size.width * 0.3,
                 child: Stack(
                   alignment: AlignmentDirectional.center,
                   children: [
                     Positioned(
                       bottom: 0,
                       child: Container(
-                        height: 100,
-                        width: 70,
+                        height: size.height * 0.1,
+                        width: size.width * 0.15,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           boxShadow: [
@@ -59,17 +57,17 @@ class CartItems extends StatelessWidget {
                     ),
                     Image.asset(
                       cart.productModel.image,
-                      width: 130,
-                    )
+                      width: size.width * 0.3,
+                    ),
                   ],
                 ),
               ),
             ),
           ),
           Positioned(
-            left: 150,
-            right: 20,
-            top: 20,
+            left: size.width * 0.4,
+            right: size.width * 0.05,
+            top: size.height * 0.02,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -114,7 +112,7 @@ class CartItems extends StatelessWidget {
                           style: TextStyle(
                             color: kblack.withOpacity(0.8),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ],
@@ -122,14 +120,12 @@ class CartItems extends StatelessWidget {
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "\$${(cart.productModel.price).toStringAsFixed(2)}",
+                      "\dt${(cart.productModel.price).toStringAsFixed(2)}",
                       style: const TextStyle(
                         color: kblack,
                         fontSize: 25,
-                        letterSpacing: -1,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -142,8 +138,8 @@ class CartItems extends StatelessWidget {
                             }
                           },
                           child: Container(
-                            width: 25,
-                            height: 40,
+                            width: size.width * 0.07,
+                            height: size.height * 0.05,
                             decoration: const BoxDecoration(
                               color: kblack,
                               borderRadius: BorderRadius.vertical(
@@ -172,8 +168,8 @@ class CartItems extends StatelessWidget {
                             cartProvider.addCart(cart.productModel);
                           },
                           child: Container(
-                            width: 25,
-                            height: 40,
+                            width: size.width * 0.07,
+                            height: size.height * 0.05,
                             decoration: const BoxDecoration(
                               color: kblack,
                               borderRadius: BorderRadius.vertical(
@@ -188,7 +184,7 @@ class CartItems extends StatelessWidget {
                           ),
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ],

@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: ScreenUtilInit(
-        designSize: const Size(375, 812), // Update this size to match your design specs
+       // designSize: const Size(375, 812), // Update this size to match your design specs
         builder: (context, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,

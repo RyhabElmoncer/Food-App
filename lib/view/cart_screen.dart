@@ -119,7 +119,7 @@ class CartScreen extends StatelessWidget {
                     ),
                     const SizedBox(width: 10),
                     const Text(
-                      "\$5.99",
+                      "\dt 7",
                       style: TextStyle(
                         color: korange,
                         fontSize: 22,
@@ -147,7 +147,7 @@ class CartScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "\$${(cartProvider.totalCart()).toStringAsFixed(2)}",
+                      "\dt ${(cartProvider.totalCart()).toStringAsFixed(2)}",
                       style: const TextStyle(
                         color: korange,
                         fontSize: 22,
@@ -166,7 +166,7 @@ class CartScreen extends StatelessWidget {
                   height: 75,
                   minWidth: MediaQuery.of(context).size.width - 50,
                   child: Text(
-                    " Pay \$${(cartProvider.totalCart() + 5.99).toStringAsFixed(2)}",
+                    " Pay \dt ${(cartProvider.totalCart() + 5.99).toStringAsFixed(2)}",
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

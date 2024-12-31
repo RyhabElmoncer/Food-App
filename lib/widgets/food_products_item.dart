@@ -19,7 +19,7 @@ class FoodProductItems extends StatelessWidget {
       alignment: AlignmentDirectional.bottomCenter,
       children: [
         Container(
-          height: 225,
+          height: 200,
           width: size.width / 2.4,
           decoration: BoxDecoration(
             color: Colors.white,
@@ -63,7 +63,7 @@ class FoodProductItems extends StatelessWidget {
                         ),
                         Image.asset(
                           productModel.image,
-                          height: 150,
+                          height: 120,
                         )
                       ],
                     ),
@@ -87,9 +87,9 @@ class FoodProductItems extends StatelessWidget {
                         const Icon(
                           Icons.star_rate_rounded,
                           color: kyellow,
-                          size: 22,
+                          size: 18,
                         ),
-                        const SizedBox(width: 5),
+                        const SizedBox(width: 3),
                         Text(
                           productModel.rate.toString(),
                           style: TextStyle(
@@ -98,32 +98,15 @@ class FoodProductItems extends StatelessWidget {
                         )
                       ],
                     ),
-                    const SizedBox(width: 10),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.location_on,
-                          color: kpink,
-                          size: 20,
-                        ),
-                        const SizedBox(width: 5),
-                        Text(
-                          "${productModel.distance}m",
-                          style: TextStyle(
-                            color: kblack.withOpacity(0.5),
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )
-                      ],
-                    )
+
                   ],
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  "\€${(productModel.price).toStringAsFixed(2)}",
+                  "\dt ${(productModel.price).toStringAsFixed(1)}",
                   style: const TextStyle(
                     color: kblack,
-                    fontSize: 25,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 )
@@ -150,7 +133,7 @@ class FoodProductItems extends StatelessWidget {
               child: const Icon(
                 Icons.shopping_cart_outlined,
                 color: Colors.white,
-                size: 25,
+                size: 20,
               ),
             ),
           ),

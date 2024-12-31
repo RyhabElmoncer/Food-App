@@ -19,7 +19,7 @@ List<MyProductModel> myProductModel = [
     price: 3.9,
     rate: 5,
     distance: 150,
-    category: "Ramen",
+    category: "Soupe",
   ),
   MyProductModel(
     image: 'assets/ramen/kurume_ramen.png',
@@ -27,7 +27,7 @@ List<MyProductModel> myProductModel = [
     price: 4.3,
     rate: 4.9,
     distance: 600,
-    category: "Ramen",
+    category: "Soupe",
   ),
   MyProductModel(
     image: 'assets/ramen/hakata_ramen.png',
@@ -35,7 +35,7 @@ List<MyProductModel> myProductModel = [
     price: 3.9,
     distance: 400,
     rate: 4.8,
-    category: "Ramen",
+    category: "Soupe",
   ),
   MyProductModel(
     image: 'assets/ramen/shrimp_fried_rice.png',
@@ -43,7 +43,7 @@ List<MyProductModel> myProductModel = [
     price: 4.9,
     distance: 800,
     rate: 4.5,
-    category: "Ramen",
+    category: "Soupe",
   ),
   MyProductModel(
     image: 'assets/ramen/fullset_ramen.png',
@@ -51,7 +51,7 @@ List<MyProductModel> myProductModel = [
     price: 5.9,
     distance: 400,
     rate: 4.7,
-    category: "Ramen",
+    category: "Soupe",
   ),
   //for burger
   MyProductModel(
@@ -107,10 +107,10 @@ List<MyProductModel> myProductModel = [
   // for waffle
   MyProductModel(
     image: 'assets/berry-bonanza-waffle.png',
-    name: 'Berry Bonanza Waffle',
+    name: 'Dessert',
     price: 10.0,
     distance: 500,
     rate: 4.5,
-    category: "Waffle",
+    category: "Dessert",
   ),
 ];

@@ -27,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       backgroundColor: kbgColor,
       bottomNavigationBar: Container(
-        height: 85,
+        height: 65,
         color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

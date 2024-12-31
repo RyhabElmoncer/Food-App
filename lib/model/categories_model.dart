@@ -7,7 +7,7 @@ class CategoryModel {
 List<CategoryModel> myCategories = [
   CategoryModel(
     image: 'assets/ramen.png',
-    name: 'Ramen',
+    name: 'Soupe',
   ),
   CategoryModel(
     image: 'assets/burger.png',
@@ -19,6 +19,6 @@ List<CategoryModel> myCategories = [
   ),
   CategoryModel(
     image: 'assets/pancake.png',
-    name: 'Waffle',
+    name: 'Dessert',
   ),
 ];
