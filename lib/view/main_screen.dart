@@ -3,6 +3,10 @@ import 'package:flutter_food_delivery_app/model/bottom_icon_model.dart';
 import 'package:flutter_food_delivery_app/utils/app_colors.dart';
 import 'package:flutter_food_delivery_app/view/home_screen.dart';
 
+import 'Explore_screen.dart';
+import 'Message_Screen.dart';
+import 'Profil_screen.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -14,9 +18,9 @@ class _MainScreenState extends State<MainScreen> {
   int currentIndex = 0;
   final List selectedPage = [
     const HomeScreen(),
-    const Center(child: Text('message page ')),
-    const Center(child: Text('Explore page ')),
-    const Center(child: Text('Profile page ')),
+    const MessagePage(),
+    const ExplorePage(),
+    const ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
